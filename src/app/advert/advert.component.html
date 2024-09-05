@@ -1,0 +1,16 @@
+<div class="advert">
+    <div id="advert-click" class="w-96 advert__container relative border cursor-pointer">
+        <!-- Image with dark overlay -->
+        <img
+            class="advert-click w-full h-full object-cover brightness-50" 
+            src={{imageSrc}} 
+            alt="Stylish Shoes" 
+        />
+        
+        <!-- Text overlay -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-4">
+            <h2 id="advert-click-heading" class="text-2xl font-bold mb-2">{{ heading }}</h2>
+            <p class="text-lg">{{ subHeading }}</p>
+        </div>
+    </div>
+</div>

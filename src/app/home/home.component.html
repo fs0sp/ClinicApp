@@ -1,0 +1,7 @@
+<div class="home">
+    <div class="home__container flex gap-5 flex-1 flex-wrap justify-center">
+        <div *ngFor="let item of adsArray">
+            <app-advert [heading]="item.heading" [subHeading]="item.subHeading" [imageSrc]="item.imageSrc"></app-advert>
+        </div>
+    </div>
+</div>

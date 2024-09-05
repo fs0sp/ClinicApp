@@ -1,0 +1,20 @@
+<div class="textbox__container flex flex-col gap-2 max-w-96">
+    <div class="textbox__container__chips flex-wrap flex gap-2 rounded-sm">
+        <div class="textbox__container__chips__box cursor-pointer min-w-10 rounded-lg text-blue-900 border-blue-900 border py-1 px-1" *ngFor="let item of savedArray">
+            <div>
+                <p class="text-center">{{item}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="textbox__container__input w-full">
+        <div class="mb-5">
+            <label for="test" class="block mb-2 text-sm font-medium text-gray-900">{{label}}</label>
+            <input (keypress)="keyPress($event)" [(ngModel)]="data" type="text" id="email"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="enter..." required />
+        </div>
+
+        <button (click)="saveData()" type="button"
+            class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Add</button>
+    </div>
+</div>

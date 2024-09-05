@@ -1,0 +1,13 @@
+<div class="textbox__container__input w-full">
+    <div class="mb-5">
+        <label for="test" class="block mb-2 text-sm font-medium text-gray-900">Doctor Name</label>
+        <input (keypress)="keyPress($event)" [(ngModel)]="data" type="text" id="email"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="enter..." required />
+        <div *ngIf="renderedList.length !== 0" class="bg-gray-300 h-32 overflow-scroll">
+            <div (click)="selectDoctor(item)" *ngFor="let item of renderedList" class="py-2 px-4 font-medium cursor-pointer">
+                {{item.name}}
+            </div>
+        </div>
+    </div>
+</div>

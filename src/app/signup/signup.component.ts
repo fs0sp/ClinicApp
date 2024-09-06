@@ -57,6 +57,8 @@ export class SignupComponent implements OnInit {
 
   saveLoginToLocalStorage() {
     localStorage.setItem('details', JSON.stringify( this.userDetails[0]));
+    localStorage.setItem('details', JSON.stringify( this.userDetails[0]));
+    localStorage.setItem('auth', 'success');
   }
 
 }

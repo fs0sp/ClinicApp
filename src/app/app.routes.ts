@@ -5,13 +5,14 @@ import { ConsultationComponent } from './consultation/consultation.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'registration', pathMatch: 'full' },
-    { path: 'add-profile', component: ProfileRegistrationComponent },
-    { path: 'consult', component: ConsultationComponent },
+    { path: 'add-profile', component: ProfileRegistrationComponent, canActivate: [authGuard] },
+    { path: 'consult', component: ConsultationComponent, canActivate: [authGuard] },
     { path: 'registration', component: RegistrationComponent },
     { path: 'signin', component: SignupComponent },
-    { path: 'home', component: HomeComponent }
+    { path: 'home', component: HomeComponent, canActivate: [authGuard] }
 ];
 

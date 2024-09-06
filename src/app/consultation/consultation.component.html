@@ -1,33 +1,57 @@
-<div class="flex flex-col items-center">
+<div class="flex flex-col justify-around">
     <h2 class="text-center font-bold mb-14 text-2xl">Enter the details.</h2>
-    <form [formGroup]="consultForm" class="mx-auto min-w-96">
-        <!-- <p class="text-center text-red-600">Please enter correct phone number.</p> -->
-        <div class="relative z-0 w-full mb-5 group">
-            <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="phone" id="phone"
-                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                formControlName="phone" placeholder=" " required />
-            <label for="phone"
-                class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone
-                number (123-456-7890)</label>
+    <div class="flex justify-around">
+        <div>
+            <form [formGroup]="consultForm" class="mx-auto min-w-96">
+                <!-- <p class="text-center text-red-600">Please enter correct phone number.</p> -->
+                <div class="relative z-0 w-full mb-5 group">
+                    <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="phone" id="phone"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        formControlName="phone" placeholder=" " required />
+                    <label for="phone"
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone
+                        number (123-456-7890)</label>
+                </div>
+                
+                <button (click)="fetchDetails()" type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Enter</button>
+                <h3 class="font-semibold mb-4">Consultation Details.</h3>
+                <div class="relative z-0 w-full mb-5 group">
+                    <input type="text" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="problem" id="problem"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        formControlName="problem" placeholder="" required />
+                    <label for="problem"
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Problem</label>
+                </div>
+                <app-custom-textarea [label]="'Symptoms'"  (emitData)="emitDataSymptoms($event)"></app-custom-textarea>
+                <app-custom-textarea [label]="'Diagnosis'"  (emitData)="emitDataDiagnosis($event)"></app-custom-textarea>
+                <app-custom-textarea [label]="'Affected body parts'"  (emitData)="emitDataBodyParts($event)"></app-custom-textarea>
+                <app-custom-textarea [label]="'Disease'"  (emitData)="emitDataDisease($event)"></app-custom-textarea>
+                <app-custom-textarea [label]="'Recommended diet'"  (emitData)="emitDataDiet($event)"></app-custom-textarea>
+                <app-custom-textarea [label]="'Preventive measures'"  (emitData)="emitDataPreventiveMeasures($event)"></app-custom-textarea>
+                <app-custom-textarea [label]="'Prescribed Medicine'"  (emitData)="emitDataPresMedicine($event)"></app-custom-textarea>
+            </form>
+            <button (click)="onSubmit()" type="button"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Submit</button>
         </div>
-        
-        <button (click)="fetchDetails()" type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Enter</button>
-        <h3 class="font-semibold mb-4">Consultation Details.</h3>
-        <div class="relative z-0 w-full mb-5 group">
-            <input type="text" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="problem" id="problem"
-                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                formControlName="problem" placeholder="" required />
-            <label for="problem"
-                class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Problem</label>
+        <div>
+            <h3 class="font-semibold mb-4">Patient Details.</h3>
+            <div class="flex gap-2">
+                <p class="text-slate-600">Name: </p>
+                <span>{{ personalDetails?.firstName}} {{personalDetails.lastName}}</span>
+            </div>
+            <div class="flex gap-2">
+                <p class="text-slate-600">Phone: </p>
+                <span>{{ personalDetails?.phone || '-'}}</span>
+            </div>
+            <div class="flex gap-2"> 
+                <p class="text-slate-600">Age: </p>
+                <span>{{ personalDetails?.age || '-'}}</span>
+            </div>
+            <div class="flex gap-2">
+                <p class="text-slate-600">Email: </p>
+                <span>{{ personalDetails?.email || '-'}}</span>
+            </div>
         </div>
-        <app-custom-textarea [label]="'Symptoms'"  (emitData)="emitDataSymptoms($event)"></app-custom-textarea>
-        <app-custom-textarea [label]="'Diagnosis'"  (emitData)="emitDataDiagnosis($event)"></app-custom-textarea>
-        <app-custom-textarea [label]="'Affected body parts'"  (emitData)="emitDataBodyParts($event)"></app-custom-textarea>
-        <app-custom-textarea [label]="'Disease'"  (emitData)="emitDataDisease($event)"></app-custom-textarea>
-        <app-custom-textarea [label]="'Recommended diet'"  (emitData)="emitDataDiet($event)"></app-custom-textarea>
-        <app-custom-textarea [label]="'Preventive measures'"  (emitData)="emitDataPreventiveMeasures($event)"></app-custom-textarea>
-        <app-custom-textarea [label]="'Prescribed Medicine'"  (emitData)="emitDataPresMedicine($event)"></app-custom-textarea>
-    </form>
-    <button (click)="onSubmit()" type="button"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Submit</button>
+    </div>    
 </div>
+ 

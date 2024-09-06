@@ -5,30 +5,32 @@
     <form [formGroup]="myForm" class=" mx-auto min-w-96">
         <div class="flex items-center mb-4">
             <input formControlName="userStatus" id="country-option-1" type="radio" name="userStatus" value="old"
-                class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
-                checked>
-            <label for="country-option-1" class="block ms-2  text-sm font-medium text-gray-900 dark:text-gray-300">
+                class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300" checked>
+            <label for="country-option-1" class="block ms-2 text-sm font-medium text-gray-900">
                 Old
             </label>
         </div>
-
+        
         <div class="flex items-center mb-4">
             <input formControlName="userStatus" id="country-option-2" type="radio" name="userStatus" value="new"
-                class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
-            <label for="country-option-2" class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300">
+            <label for="country-option-2" class="block ms-2 text-sm font-medium text-gray-900">
                 New
             </label>
         </div> 
-
+        
         <div *ngIf="showPhoneForm">
             <div class="mb-5">
-                <label for="test" class="block mb-2 text-sm font-medium text-gray-900 dark:text-red">Enter phone number.</label>
+                <label for="test" class="block mb-2 text-sm font-medium text-gray-900">Enter phone number.</label>
                 <input formControlName="enteredPhoneNumber" type="text" id="email"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-red dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     placeholder="enter..." required />
             </div>
-            <button (click)="submitPhoneNumber()" type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Submit</button>
+            <button (click)="submitPhoneNumber()" type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">
+                Submit
+            </button>
         </div>
+        
 
         
 

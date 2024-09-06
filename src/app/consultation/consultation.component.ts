@@ -3,11 +3,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CustomTextareaComponent } from '../widgets/custom-textarea/custom-textarea.component';
 import { FetchpatientsService } from '../service/fetchpatients.service';
 import { Title } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-consultation',
   standalone: true,
-  imports: [ReactiveFormsModule, CustomTextareaComponent],
+  imports: [ReactiveFormsModule, CustomTextareaComponent, CommonModule],
   templateUrl: './consultation.component.html',
   styleUrl: './consultation.component.css'
 })
@@ -46,19 +47,19 @@ export class ConsultationComponent implements OnInit {
   }
 
   onSubmit() {
-    const firstName = this.personalDetails[0]?.firstName;
-    const lastName = this.personalDetails[0]?.lastName;
-    const email = this.personalDetails[0]?.email;
-    const age = this.personalDetails[0]?.age;
-    const address = this.personalDetails[0]?.address;
-    const ConsultationFeeAmount = this.personalDetails[0]?.ConsultationFeeAmount;
-    const feePaid = this.personalDetails[0]?.feePaid;
-    const status = this.personalDetails[0]?.status;
-    const doctorID = this.personalDetails[0]?.doctorID;
-    const doctorName = this.personalDetails[0]?.doctorName;
-    const receptionistID = this.personalDetails[0]?.receptionistID;
-    const receptionistName = this.personalDetails[0]?.receptionistName;
-    const testsUndertaken = this.personalDetails[0]?.testsUndertaken;
+    const firstName = this.personalDetails?.firstName;
+    const lastName = this.personalDetails?.lastName;
+    const email = this.personalDetails?.email;
+    const age = this.personalDetails?.age;
+    const address = this.personalDetails?.address;
+    const ConsultationFeeAmount = this.personalDetails?.ConsultationFeeAmount;
+    const feePaid = this.personalDetails?.feePaid;
+    const status = this.personalDetails?.status;
+    const doctorID = this.personalDetails?.doctorID;
+    const doctorName = this.personalDetails?.doctorName;
+    const receptionistID = this.personalDetails?.receptionistID;
+    const receptionistName = this.personalDetails?.receptionistName;
+    const testsUndertaken = this.personalDetails?.testsUndertaken;
 
     const payload = {
       "firstName": firstName,

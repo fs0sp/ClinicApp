@@ -9,7 +9,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   if (localStorageData === 'success') { 
     return true;
   } else {
-    router.navigate(['/signup']); // Use the injected router to navigate
+    router.navigate(['/signin']); // Use the injected router to navigate
     return false;
   }
 };

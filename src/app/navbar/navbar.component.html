@@ -13,19 +13,19 @@
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
         <li>
-          <a (click)="routeToPage('/home')" class="cursor-pointer block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0" aria-current="page">Home</a>
+          <a (click)="routeToPage('/home')" [ngClass]="{'text-blue-700': currentTabSelected === '/home', 'text-black': currentTabSelected !== '/home'}" class="cursor-pointer block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent  md:p-0" aria-current="page">Home</a>
         </li>
         <li>
-          <a (click)="routeToPage('/add-profile')"  class="cursor-pointer block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Add Profile</a>
+          <a (click)="routeToPage('/add-profile')" [ngClass]="{'text-blue-700 ': currentTabSelected === '/add-profile', 'text-black': currentTabSelected !== '/home'}"  class="cursor-pointer block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Add Profile</a>
         </li>
         <li>
-          <a (click)="routeToPage('/consult')"  class=" cursor-pointer block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Consultation</a>
+          <a (click)="routeToPage('/consult')" [ngClass]="{'text-blue-700 ': currentTabSelected === '/consult', 'text-black': currentTabSelected !== '/home'}"  class=" cursor-pointer block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Consultation</a>
         </li>
         <li>
-          <a (click)="routeToPage('/registration')"  class=" cursor-pointer block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Registration</a>
+          <a (click)="routeToPage('/registration')" [ngClass]="{'text-blue-700 ': currentTabSelected === '/registration', 'text-black': currentTabSelected !== '/home'}"  class=" cursor-pointer block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Registration</a>
         </li>
         <li *ngIf="!isLoggedIn">
-          <a (click)="routeToPage('/signin')"  class=" cursor-pointer block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Sign In</a>
+          <a (click)="routeToPage('/signin')" [ngClass]="{'text-blue-700 ': currentTabSelected === '/signin', 'text-black': currentTabSelected !== '/home'}"  class=" cursor-pointer block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Sign In</a>
         </li>
         <li *ngIf="isLoggedIn">
           <a (click)="logoutUser()"  class=" cursor-pointer block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Logout</a>

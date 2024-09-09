@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
 
   userDetails: any;
   isLoggedIn: boolean = false;
+  currentTabSelected: string = "/home";
   constructor(private router: Router, private _apiService: SignupService) {
 
   }
@@ -37,6 +38,8 @@ export class NavbarComponent implements OnInit {
   }
 
   routeToPage(path: string): void {
+    this.currentTabSelected = path;
+    console.log("Current tab selected:: ", this.currentTabSelected);
     this.router.navigate([path]);
   }
 

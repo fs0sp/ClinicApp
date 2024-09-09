@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { AdvertComponent } from '../advert/advert.component';
 import { CommonModule } from '@angular/common';
+import { PatienttrackingComponent } from '../patienttracking/patienttracking.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [AdvertComponent, CommonModule],
+  imports: [AdvertComponent, CommonModule, PatienttrackingComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

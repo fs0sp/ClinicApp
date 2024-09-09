@@ -4,6 +4,8 @@ import { CustomTextareaComponent } from '../widgets/custom-textarea/custom-texta
 import { FetchpatientsService } from '../service/fetchpatients.service';
 import { Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { CustomPopupComponent } from '../custom-popup/custom-popup.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-consultation',
@@ -24,7 +26,7 @@ export class ConsultationComponent implements OnInit {
   dataPresMeds: any;
   personalDetails: any = [];
   isWrongNumber: boolean = false;
-  constructor(private titleService: Title, private fb: FormBuilder, private _apiService: FetchpatientsService) {
+  constructor(public dialog: MatDialog, private titleService: Title, private fb: FormBuilder, private _apiService: FetchpatientsService) {
 
   }
 
@@ -87,8 +89,22 @@ export class ConsultationComponent implements OnInit {
     console.log("button tapped. ", payload);
     // this._apiService.setPatientRecords(payload);
 
-    this._apiService.setPatientRecords(payload).subscribe((xx) => {
-      console.log("response data is > ", xx);
+    this._apiService.setPatientRecords(payload).subscribe({
+      next: (response) => {
+        console.log("response data is >", response);
+        this.openSuccessPopup();
+      },
+      error: (err) => {
+        console.error("An error occurred: ", err);
+      }
+    });
+    
+  }
+
+  openSuccessPopup(): void {
+    this.dialog.open(CustomPopupComponent, {
+      width: '300px',
+      data: { message: 'Submitted Successfully!' }
     });
   }
 

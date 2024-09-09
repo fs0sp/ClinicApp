@@ -6,6 +6,8 @@ import { FetchpatientsService } from '../service/fetchpatients.service';
 import { FetchstaffService } from '../service/fetchstaff.service';
 import { TypeaheadInputboxComponent } from '../typeahead-inputbox/typeahead-inputbox.component';
 import { Title } from '@angular/platform-browser';
+import { CustomPopupComponent } from '../custom-popup/custom-popup.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-profile-registration',
@@ -37,7 +39,7 @@ export class ProfileRegistrationComponent implements OnInit{
   personalDetails: any;
   selectedDoctorDetails: any;
 
-  constructor(private titleService: Title ,private fb: FormBuilder, private tokenService: TokenService, private _fetchPatientService: FetchpatientsService, private _fetchStaffService: FetchstaffService) {
+  constructor(public dialog: MatDialog, private titleService: Title ,private fb: FormBuilder, private tokenService: TokenService, private _fetchPatientService: FetchpatientsService, private _fetchStaffService: FetchstaffService) {
 
   }
 
@@ -183,9 +185,28 @@ export class ProfileRegistrationComponent implements OnInit{
       "feePaid": this.myDoctorForm.get('feePaid')?.value,
     }
 
-    this._fetchPatientService.setPatientRecords(payload).subscribe((xx) => {
-        console.log("response data is > ", xx);
+    // this._fetchPatientService.setPatientRecords(payload).subscribe((xx) => {
+    //     console.log("response data is > ", xx);
+
+    //   });
+
+      this._fetchPatientService.setPatientRecords(payload).subscribe({
+        next: (response) => {
+          console.log("response data is > ", response);
+          this.openSuccessPopup();
+        },
+        error: (err) => {
+          console.error("Error occurred: ", err);
+        }
       });
+      
+  }
+
+  openSuccessPopup(): void {
+    this.dialog.open(CustomPopupComponent, {
+      width: '300px',
+      data: { message: 'Added Successfully!' }
+    });
   }
 
 }

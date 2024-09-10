@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { SignupService } from '../service/signup.service';
+import { CounterstatusComponent } from '../counterstatus/counterstatus.component';
 
 @Component({
   selector: 'app-patienttracking',
   standalone: true,
-  imports: [],
+  imports: [CounterstatusComponent],
   templateUrl: './patienttracking.component.html',
   styleUrl: './patienttracking.component.css'
 })
@@ -12,7 +13,17 @@ export class PatienttrackingComponent implements OnInit{
 
   userDetails: any;
   firstName: string = "";
-
+  isInverse = true;
+  activePatientCounter: any = {
+    isInverse : true,
+    value: "22",
+    message: "patients active"
+  }
+  activeDoctorCounter: any = {
+    isInverse : true,
+    value: "5",
+    message: "doctor active"
+  }
   constructor(private _apiService: SignupService) {}
 
   ngOnInit(): void {

@@ -35,22 +35,25 @@
         </div>
         <div>
             <h3 class="font-semibold mb-4">Patient Details.</h3>
-            <div class="flex gap-2">
-                <p class="text-slate-600">Name: </p>
-                <span>{{ personalDetails?.firstName}} {{personalDetails.lastName}}</span>
+            <div *ngFor="let item of personalDetails">
+                <div class="flex gap-2">
+                    <p class="text-slate-600">Name: </p>
+                    <span>{{ item?.firstName}} {{item.lastName}}</span>
+                </div>
+                <div class="flex gap-2">
+                    <p class="text-slate-600">Phone: </p>
+                    <span>{{ item?.phone || '-'}}</span>
+                </div>
+                <div class="flex gap-2"> 
+                    <p class="text-slate-600">Age: </p>
+                    <span>{{ item?.age || '-'}}</span>
+                </div>
+                <div class="flex gap-2">
+                    <p class="text-slate-600">Email: </p>
+                    <span>{{ item?.email || '-'}}</span>
+                </div>
             </div>
-            <div class="flex gap-2">
-                <p class="text-slate-600">Phone: </p>
-                <span>{{ personalDetails?.phone || '-'}}</span>
-            </div>
-            <div class="flex gap-2"> 
-                <p class="text-slate-600">Age: </p>
-                <span>{{ personalDetails?.age || '-'}}</span>
-            </div>
-            <div class="flex gap-2">
-                <p class="text-slate-600">Email: </p>
-                <span>{{ personalDetails?.email || '-'}}</span>
-            </div>
+            
         </div>
     </div>    
 </div>

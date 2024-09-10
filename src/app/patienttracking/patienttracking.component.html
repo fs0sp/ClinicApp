@@ -1,4 +1,9 @@
 <div class="border my-2 p-3 bg-blue-700 rounded-md">
     <h2 class="text-3xl text-slate-200">Hi, <span class="text-slate-50">{{ firstName }}!</span></h2>
-    <h3 class="text-slate-300">Today's Status</h3>
+    <!-- <h3 class="text-slate-300">Today's Status</h3> -->
+    <div class="flex gap-5 justify-around mt-5 mb-5">
+        <app-counterstatus [inverse]="activePatientCounter.isInverse" [value]="activePatientCounter.value" [message]="activePatientCounter.message"></app-counterstatus>
+        <app-counterstatus [inverse]="activeDoctorCounter.isInverse" [value]="activeDoctorCounter.value" [message]="activeDoctorCounter.message"></app-counterstatus>
+        <app-counterstatus [inverse]="activePatientCounter.isInverse" [value]="activePatientCounter.value" [message]="activePatientCounter.message"></app-counterstatus>
+    </div>
 </div>

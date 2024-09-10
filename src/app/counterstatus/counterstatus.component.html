@@ -1,0 +1,16 @@
+<div [class.bg-white]="inverse" 
+     [class.bg-blue-700]="!inverse"
+     class="p-5 w-36 aspect-square rounded-md flex justify-center items-center cursor-pointer">
+    <div class="flex flex-col justify-center items-center">
+        <h2 [class.text-blue-700]="inverse"
+            [class.text-slate-50]="!inverse"
+            class="text-5xl">
+            {{ value }}
+        </h2>
+        <p [class.text-blue-500]="inverse"
+           [class.text-slate-200]="!inverse"
+           class="italic">
+            {{ message }}
+        </p>
+    </div>
+</div>

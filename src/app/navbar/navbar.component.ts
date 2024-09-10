@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { SignupService } from '../service/signup.service';
 import { CommonModule } from '@angular/common';
+import { RolePipe } from '../role.pipe';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterOutlet, CommonModule, RolePipe],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })

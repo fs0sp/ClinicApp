@@ -21,7 +21,7 @@ export class PatienttrackingComponent implements OnInit{
         this.userDetails = details;
         // React to the update in userDetails
         console.log('User details:', this.userDetails);
-        this.firstName = this.userDetails.name.split(" ")[0];
+        this.firstName = this.userDetails?.name?.split(" ")[0];
         
       },
       error: (err) => {

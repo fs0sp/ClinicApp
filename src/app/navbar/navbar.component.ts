@@ -24,9 +24,9 @@ export class NavbarComponent implements OnInit {
         this.userDetails = details;
         // React to the update in userDetails
         console.log('User details updated:', this.userDetails);
-        if(details.length !== 0) {
+        if(details !== null) {
           this.isLoggedIn = true;
-        } else if(details.length === 0) {
+        } else if(details?.length === 0  || details === null) {
           this.isLoggedIn = false;
           console.log(this.isLoggedIn)
         }

@@ -7,12 +7,12 @@ import { Injectable } from '@angular/core';
 export class FetchpatientsService {
 
   staffPhoneNumberData: any;
-  baseUrl = "http://localhost:5000/api/patients/search?";
+  baseUrl = "http://localhost:5000/api/patients";
 
   constructor(private _http: HttpClient) { }
 
   getPatientsByPhoneNumber(phone: string) {
-    const url = this.baseUrl + 'phone=' + phone;
+    const url = this.baseUrl + '/search?phone=' + phone;
     return this._http.get(url);
 
   }
@@ -20,6 +20,6 @@ export class FetchpatientsService {
   setPatientRecords(payload: any) {
     const url = "http://localhost:5000/api/patients";
     console.log(" calling.... ", url);
-    return this._http.post(url, payload);
+    return this._http.post(this.baseUrl, payload);
   }
 }

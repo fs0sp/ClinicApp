@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class FetchstaffService implements OnInit {
 
-  baseUrl = "	http://localhost:5000/api/staff";
+  baseUrl = "http://localhost:5000/api/staff";
   allDoctorData: any;
   constructor(private _http: HttpClient) { }
 
@@ -25,8 +25,8 @@ export class FetchstaffService implements OnInit {
   }
 
   registerUser(payload: any) {
-    const url = "http://localhost:5000/api/staff";
-    this._http.post(url, payload).subscribe({
+    // const url = "http://localhost:5000/api/staff";
+    this._http.post(this.baseUrl, payload).subscribe({
       next: (data) => {
         console.log('Data received: ', data);
       },

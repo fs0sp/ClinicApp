@@ -11,7 +11,7 @@ export class RolePipe implements PipeTransform {
   transform(value: string, ...args: unknown[]): unknown {
     const prefixes: any = {
       doctor: "Dr",
-      reception: "Re"
+      receptionist: "Re"
   };
   
   return prefixes[value] || "";

@@ -146,14 +146,14 @@ export class ProfileRegistrationComponent implements OnInit{
   populatePersonalDetails() {
     console.log("personal >>", this.personalDetails)
     this.myForm.patchValue({
-      firstName : this.personalDetails?.firstName,
-      lastName: this.personalDetails?.lastName,
-      phone: this.personalDetails?.phone,
-      email: this.personalDetails?.email,
-      age: this.personalDetails?.age,
-      address: this.personalDetails?.address,
-      receptionistName: this.personalDetails?.receptionistName,
-      receptionistId: this.personalDetails?.receptionistID,
+      firstName : this.personalDetails?.patientLastInsrtedData[0].firstName,
+      lastName: this.personalDetails?.patientLastInsrtedData[0].lastName,
+      phone: this.personalDetails?.patientLastInsrtedData[0].phone,
+      email: this.personalDetails?.patientLastInsrtedData[0].email,
+      age: this.personalDetails?.patientLastInsrtedData[0].age,
+      address: this.personalDetails?.patientLastInsrtedData[0].address,
+      receptionistName: this.personalDetails?.patientLastInsrtedData[0].receptionistName,
+      receptionistId: this.personalDetails?.patientLastInsrtedData[0].receptionistID,
     })
   }
 

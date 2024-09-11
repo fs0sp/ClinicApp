@@ -11,4 +11,9 @@ export class AdvertComponent {
   @Input() heading: string = "Step into Style with Our Latest Collection";
   @Input() subHeading: string = "Unleash your stride with shoes that redefine comfort and elegance—because every step deserves the best!";
   @Input() imageSrc: string = "https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg";
+  @Input() link: string = "https://amzn.in/d/7q8Znzc";
+
+  redirectToLink() {
+    window.open(this.link, '_blank');
+  }
 }

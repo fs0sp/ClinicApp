@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'registration', pathMatch: 'full' },
+    { path: '', redirectTo: 'signin', pathMatch: 'full' },
     { path: 'add-profile', component: ProfileRegistrationComponent, canActivate: [authGuard] },
     { path: 'consult', component: ConsultationComponent, canActivate: [authGuard] },
     { path: 'registration', component: RegistrationComponent, canActivate: [authGuard] },

@@ -22,6 +22,7 @@ export class PopupComponent implements OnInit {
   }
 
   routeFailed() {
+    console.log("falie")
     this.router.navigate(['signin']);
   }
 

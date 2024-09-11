@@ -4,6 +4,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileRegistrationComponent } from './profile-registration/profile-registration.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SignupService } from './service/signup.service';
+import { environment } from '../environments/environment';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkIfUserExists();
+    console.log("Current Environment ----------- ", environment.currentEnv);
   }
 
   checkIfUserExists() {

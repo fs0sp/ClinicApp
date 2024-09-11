@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SignupService {
 
-  baseurl: string = "http://localhost:5000/api/staff";
+  baseurl: string = environment.staffBaseUrl;
   isValidUser: boolean = true;
   private userDetailsSubject = new BehaviorSubject<any>(null);
   constructor(private _http: HttpClient) { }

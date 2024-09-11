@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FetchstaffService implements OnInit {
 
-  baseUrl = "http://localhost:5000/api/staff";
+  baseUrl = environment.staffBaseUrl;
   allDoctorData: any;
   constructor(private _http: HttpClient) { }
 

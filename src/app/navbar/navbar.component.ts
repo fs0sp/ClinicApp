@@ -20,17 +20,20 @@ export class NavbarComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    console.log("User Logged in? ", this.isLoggedIn);
     this._apiService.getUserDetails().subscribe({
       next: (details) => {
         this.userDetails = details;
         // React to the update in userDetails
-        console.log('User details updated:', this.userDetails);
-        if(details !== null) {
+        console.log('User details updated:', this.userDetails, typeof(details));
+        if(details !== null || !details) {
           this.isLoggedIn = true;
-        } else if(details?.length === 0  || details === null) {
+        }
+        if(details?.length === 0  || details === null || details === "") {
           this.isLoggedIn = false;
           console.log(this.isLoggedIn)
         }
+        console.log("User Logged in? ", this.isLoggedIn);
       },
       error: (err) => {
         console.error('Error fetching user details:', err);

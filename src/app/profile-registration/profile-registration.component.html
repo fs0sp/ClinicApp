@@ -1,7 +1,7 @@
 <div class="flex flex-col items-center">
-    <h2 class="text-center font-bold mb-14 text-2xl">Registration Form</h2>
+    <h2 class="text-center mb-14 text-2xl font-medium text-blue-900">Registration Form</h2>
     <!-- <app-typeahead-inputbox (setSelectedDoctor)="setSelectedDoctor($event)" [suggestionList]="allDoctors"></app-typeahead-inputbox> -->
-    <h3 class="font-semibold">Personal Details.</h3>
+    <h3 class="font-medium text-blue-900">Personal Details.</h3>
     <form [formGroup]="myForm" class=" mx-auto min-w-96">
         <div class="flex items-center mb-4">
             <input formControlName="userStatus" id="country-option-1" type="radio" name="userStatus" value="old"
@@ -103,7 +103,7 @@
 
     </form>
 
-    <h3 class="font-semibold">Assigned Doctor.</h3>
+    <h3 class="font-medium text-blue-900">Assigned Doctor.</h3>
 
     <form [formGroup]="myDoctorForm" class="mx-auto min-w-96">
         <div class="relative z-0 w-full mb-5 group">
@@ -139,7 +139,7 @@
     </form>
     
 
-    <h3 class="font-semibold">Fee payment.</h3>
+    <h3 class="font-medium text-blue-900">Fee payment.</h3>
 
     <form [formGroup]="myFeePaymentForm" class=" mx-auto min-w-96">
 
@@ -162,7 +162,7 @@
 
     </form>
 
-    <h3 class="font-semibold">Add Reference.</h3>
+    <h3 class="font-medium text-blue-900">Add Reference.</h3>
 
     <form [formGroup]="myReferenceForm" class=" mx-auto min-w-96">
 
